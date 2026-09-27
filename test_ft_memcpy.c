@@ -45,7 +45,7 @@ int	test_ft_memcpy(void)
 	fail = 0;
 	fail += test_case("normal", "ABCDE", 3);
 	fail += test_case("n=0", "ABCDE", 0);
-	fail += test_case("full", "01234567890abcdef", BUF_SIZE);
+	fail += test_case("full", "0123456789abcdef", BUF_SIZE);
 	fail += test_case("nul-byte", "A\0B", 3);
 	fail += test_case("high bytes", "\xff\x80\x7f", 3);
 	fail += test_int_array();
