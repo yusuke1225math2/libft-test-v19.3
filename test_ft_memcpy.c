@@ -4,7 +4,7 @@
 
 static int	result(const char *name, int ok)
 {
-	printf("%-12s %s\n", name , ok ? "OK" : "KO");
+	printf("%-12s %s\n", name, ok ? "OK" : "KO");
 	return (!ok);
 }
 
@@ -18,7 +18,7 @@ static int	test_case(const char *name, const void *src, size_t n)
 	memset(a, '.', BUF_SIZE);
 	memset(b, '.', BUF_SIZE);
 	ra = memcpy(a, src, n);
-	rb = memcpy(b, src, n);
+	rb = ft_memcpy(b, src, n);
 	return (result(name, memcmp(a, b, BUF_SIZE) == 0 && ra == a && rb == b));
 }
 
@@ -34,7 +34,7 @@ static int	test_int_array(void)
 	int	b[4] = {0};
 
 	memcpy(a, src, sizeof(src));
-	memcpy(b, src, sizeof(src));
+	ft_memcpy(b, src, sizeof(src));
 	return (result("int array", memcmp(a, b, sizeof(a)) == 0));
 }
 
