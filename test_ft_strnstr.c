@@ -13,7 +13,7 @@ static int	test_case(const char *name, const char *big,
 	return (result(name, ok));
 }
 
-int	test_ft_calloc(void)
+int	test_ft_strnstr(void)
 {
 	int	fail;
 
@@ -23,7 +23,7 @@ int	test_ft_calloc(void)
 	fail += test_case("match at 0", "0123456789", "012", 10);
 	fail += test_case("match at end", "0123456789", "89", 10);
 	fail += test_case("no match", "0123456789", "a", 10);
-	fail += test_case("short len no match ", "0123456789", "3456", 5);
+	fail += test_case("short len no match", "0123456789", "3456", 5);
 	fail += test_case("empty little", "0123456789", "", 10);
 	fail += test_case("empty big", "", "a", 10);
 	fail += test_case("zero len", "0123456789", "3456", 0);
@@ -46,5 +46,5 @@ int	test_ft_calloc(void)
 
 int	main(void)
 {
-	return (test_ft_calloc());
+	return (test_ft_strnstr());
 }
