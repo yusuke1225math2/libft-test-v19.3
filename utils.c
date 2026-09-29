@@ -2,7 +2,7 @@
 
 int	result(const char *name, int ok)
 {
-	printf("%-30s %s\n", name, ok ? "OK" : "KO");
+	printf("%s: %s\n", ok ? "OK" : "KO", name);
 	return (!ok);
 }
 

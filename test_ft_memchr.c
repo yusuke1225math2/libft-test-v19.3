@@ -1,11 +1,5 @@
 #include "test_libft.h"
 
-static int	result(const char *name, int ok)
-{
-	printf("%-12s %s\n", name, ok ? "OK" : "KO");
-	return (!ok);
-}
-
 static int	test_case(const char *name, const void *s, int c, size_t n)
 {
 	void	*ra;
@@ -50,10 +44,7 @@ int	test_ft_memchr(void)
 	fail += test_case("first", "ABC", 'A', 3);
 	fail += test_case("dup", "ABAB", 'B', 4);
 	fail += test_buffers();
-	if (fail)
-		printf("\n%d test(s) failed\n", fail);
-	else
-		printf("\nall tests passed\n");
+	result_all(fail);
 	return (fail != 0);
 }
 

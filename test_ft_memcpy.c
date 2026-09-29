@@ -2,12 +2,6 @@
 
 #define BUF_SIZE 16
 
-static int	result(const char *name, int ok)
-{
-	printf("%-12s %s\n", name, ok ? "OK" : "KO");
-	return (!ok);
-}
-
 static int	test_case(const char *name, const void *src, size_t n)
 {
 	unsigned char	a[BUF_SIZE];
@@ -50,10 +44,7 @@ int	test_ft_memcpy(void)
 	fail += test_case("high bytes", "\xff\x80\x7f", 3);
 	fail += test_int_array();
 	fail += test_null();
-	if (fail)
-		printf("\n%d test(s) failed\n", fail);
-	else
-		printf("\nall tests passed\n");
+	result_all(fail);
 	return (fail != 0);
 }
 

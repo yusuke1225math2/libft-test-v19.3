@@ -1,11 +1,5 @@
 #include "test_libft.h"
 
-static int	result(const char *name, int ok)
-{
-	printf("%-20s %s\n", name, ok ? "OK" : "KO");
-	return (!ok);
-}
-
 static int	test_case(const char *name, size_t nmemb, size_t size)
 {
 	unsigned char	*a;
@@ -58,10 +52,7 @@ int	test_ft_calloc(void)
 	fail += test_case("overflow edge", (size_t)-1 / 2 + 1, 2);
 	fail += test_case("huge no overflow", (size_t)-1, 1);
 	fail += test_dirty_reuse();
-	if (fail)
-		printf("\n%d test(s) failed\n", fail);
-	else
-		printf("\nall tests passed\n");
+	result_all(fail);
 	return (fail != 0);
 }
 

@@ -2,12 +2,6 @@
 
 #define BUF_SIZE 16
 
-static int	result(const char *name, int ok)
-{
-	printf("%-12s %s\n", name, ok ? "OK" : "KO");
-	return (!ok);
-}
-
 static int	test_case(const char *name, const void *src, size_t n)
 {
 	unsigned char	a[BUF_SIZE];
@@ -70,10 +64,7 @@ int	test_ft_memmove(void)
 	fail += test_overlap("overlap dst==src", 0, 0, 5);
 	fail += test_overlap("adjacent", 5, 0, 5);
 	fail += test_overlap("overlap n=0", 2, 0, 2);
-	if (fail)
-		printf("\n%d test(s) failed\n", fail);
-	else
-		printf("\nall tests passed\n");
+	result_all(fail);
 	return (fail != 0);
 }
 

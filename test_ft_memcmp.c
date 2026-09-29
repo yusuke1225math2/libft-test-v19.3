@@ -1,12 +1,6 @@
 #include "test_libft.h"
 #define SIGN(x) (((x) > 0) - ((x) < 0))
 
-static int	result(const char *name, int ok)
-{
-	printf("%-20s %s\n", name, ok ? "OK" : "KO");
-	return (!ok);
-}
-
 static int	test_case(const char *name, const void *s1, const void *s2, size_t n)
 {
 	int	ra;
@@ -48,10 +42,7 @@ int	test_ft_memcmp(void)
 	fail += test_case("reversed", "\x01", "\x80", 1);
 	fail += test_case("extremes", "\xff", "\x00", 1);
 	fail += test_buffers();
-	if (fail)
-		printf("\n%d test(s) failed\n", fail);
-	else
-		printf("\nall tests passed\n");
+	result_all(fail);
 	return (fail != 0);
 }
 

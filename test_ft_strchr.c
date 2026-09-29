@@ -1,11 +1,5 @@
 #include "test_libft.h"
 
-static int	result(const char *name, int ok)
-{
-	printf("%-12s %s\n", name, ok ? "OK" : "KO");
-	return (!ok);
-}
-
 static int	test_case(const char *name, const char *s, int c)
 {
 	char	*ra;
@@ -29,10 +23,7 @@ int	test_ft_strchr(void)
 	fail += test_case("256(NULL)", "ABC", 256);
 	fail += test_case("high byte", "AB\xe9", 0xe9);
 	fail += test_case("negative byte", "AB\xe9", -23);
-	if (fail)
-		printf("\n%d test(s) failed\n", fail);
-	else
-		printf("\nall tests passed\n");
+	result_all(fail);
 	return (fail != 0);
 }
 
