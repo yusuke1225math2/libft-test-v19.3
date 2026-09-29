@@ -12,13 +12,25 @@
 
 #include "test_libft.h"
 
-void	test_case(void)
+static int	test_case(const char *name)
 {
-	printf("");
-	printf("\n");
+	int	ok;
+
+	ok = 1;
+	return (result(name, ok));
+}
+
+int	test_ft_template(void)
+{
+	int	fail;
+
+	fail = 0;
+	fail += test_case("first case");
+	result_all(fail);
+	return (fail != 0);
 }
 
 int	main(void)
 {
-	printf("===== Case: =====\n");
+	return (test_ft_template());
 }
