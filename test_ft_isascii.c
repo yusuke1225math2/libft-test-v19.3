@@ -1,6 +1,6 @@
 #include "test_libft.h"
 
-void	test_case(int c)
+static void	test_case(int c)
 {
 	printf("case: c == %d\n", c);
 	printf("isascii:	%d\n", isascii(c));

@@ -1,6 +1,6 @@
 #include "test_libft.h"
 
-void	test_case(int c)
+static void	test_case(int c)
 {
 	printf("case: c == %d ('%c' in char)\n", c, c);
 	printf("isdigit:	%d\n", isdigit(c));
