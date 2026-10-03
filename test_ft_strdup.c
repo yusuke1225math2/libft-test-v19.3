@@ -6,29 +6,38 @@
 /*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/26 16:21:47 by yutambo           #+#    #+#             */
-/*   Updated: 2026/09/26 16:43:26 by yutambo          ###   ########.fr       */
+/*   Updated: 2026/10/04 01:41:43 by yutambo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "test_libft.h"
-#define TEST(s, f) test_func(#f, s, f)
 
-static void	test_func(const char *fname, const char *s, char *(*f)(const char *))
+static int	test_case(const char *name, const char *s)
 {
-	char	*d;
+	int	ok;
+	char	*ra;
+	char	*rb;
 
-	printf("\n===== %s =====\n", fname);
-	d = f(s);
-	printf("s     : \"%s\"\n", s);
-	printf("return: \"%s\"\n", d);
-	free(d);
+	ra = strdup(s);
+	rb = ft_strdup(s);
+	ok = strcmp(ra, rb) == 0;
+	free(ra);
+	free(rb);
+	return (result(name, ok));
+}
+
+int	test_ft_strdup(void)
+{
+	int	fail = 0;
+
+	printf("===== test_ft_strdup =====\n");
+	fail += test_case("\"\"", "");
+	fail += test_case("\"Silence is gold.\"", "Silence is gold.");
+	result_all(fail);
+	return (fail);
 }
 
 int	main(void)
 {
-	char	*src;
-
-	src = "Silence is gold.";
-	TEST(src, strdup);
-	TEST(src, ft_strdup);
+	return (test_ft_strdup());
 }
