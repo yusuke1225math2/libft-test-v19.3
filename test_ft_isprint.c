@@ -1,20 +1,22 @@
 #include "test_libft.h"
 
-static void	test_case(int c)
+static int	test_case(const char *name, int c)
 {
-	printf("case: c == %d ('%c' in char)\n", c, c);
-	printf("isprint:	%d\n", isprint(c));
-	printf("ft_isprint:	%d\n", ft_isprint(c));
-	printf("\n");
+	return (result(name, !!isprint(c) == !!ft_isprint(c)));
 }
 
-void	test_ft_isprint(void)
+int	test_ft_isprint(void)
 {
-	test_case(31);
-	test_case(' ');
-	test_case('&');
-	test_case('~');
-	test_case(127);
+	int	fail = 0;
+
+	printf("===== test_ft_isprint =====\n");
+	fail += test_case("'31'", 31);
+	fail += test_case("' '", ' ');
+	fail += test_case("'&'", '&');
+	fail += test_case("'~'", '~');
+	fail += test_case("'127'", 127);
+	result_all(fail);
+	return (fail);
 }
 
 int	main(void)
