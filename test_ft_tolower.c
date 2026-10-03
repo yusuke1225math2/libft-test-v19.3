@@ -1,18 +1,24 @@
 #include "test_libft.h"
 
-void	test_case(int c)
+static int	test_case(const char *name, int c)
 {
-	printf("case: c == %d ('%c' in char)\n", c, c);
-	printf("tolower:	'%c'\n", tolower(c));
-	printf("ft_tolower:	'%c'\n", ft_tolower(c));
-	printf("\n");
+	return (result(name, tolower(c) == ft_tolower(c)));
+}
+
+int	test_ft_tolower(void)
+{
+	int	fail = 0;
+
+	fail += test_case("\' \'", ' ');
+	fail += test_case("\'0\'", '0');
+	fail += test_case("\'a\'", 'a');
+	fail += test_case("\'A\'", 'A');
+	fail += test_case("\'Z\'", 'Z');
+	result_all(fail);
+	return (fail);
 }
 
 int	main(void)
 {
-	test_case(' ');
-	test_case('0');
-	test_case('a');
-	test_case('A');
-	test_case('Z');
+	return (test_ft_tolower());
 }
