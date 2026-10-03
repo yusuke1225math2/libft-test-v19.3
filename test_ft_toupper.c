@@ -1,23 +1,25 @@
 #include "test_libft.h"
 
-static void	test_case(int c)
+static int	test_case(const char *name, int c)
 {
-	printf("case: c == %d ('%c' in char)\n", c, c);
-	printf("toupper:	'%c'\n", toupper(c));
-	printf("ft_toupper:	'%c'\n", ft_toupper(c));
-	printf("\n");
+	return (result(name, toupper(c) == ft_toupper(c)));
 }
 
-void	test_ft_toupper(void)
+int	test_ft_toupper(void)
 {
-	test_case(' ');
-	test_case('0');
-	test_case('A');
-	test_case('a');
-	test_case('z');
+	int	fail = 0;
+
+	printf("===== test: ft_toupper =====\n");
+	fail += test_case("\' \'", ' ');
+	fail += test_case("\'0\'", '0');
+	fail += test_case("\'A\'", 'A');
+	fail += test_case("\'a\'", 'a');
+	fail += test_case("\'z\'", 'z');
+	result_all(fail);
+	return (fail);
 }
 
 int	main(void)
 {
-	test_ft_toupper();
+	return (test_ft_toupper());
 }
