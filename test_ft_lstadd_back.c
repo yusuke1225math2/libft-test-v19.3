@@ -6,7 +6,7 @@
 /*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/29 17:17:40 by yutambo           #+#    #+#             */
-/*   Updated: 2026/09/29 17:40:50 by yutambo          ###   ########.fr       */
+/*   Updated: 2026/10/04 01:18:54 by yutambo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int	test_ft_lstadd_back(void)
 {
 	int	fail;
 
+	printf("===== test_ft_lstadd_back =====\n");
 	fail = 0;
 	fail += test_case1("lst is NULL");
 	fail += test_case2("new is NULL");

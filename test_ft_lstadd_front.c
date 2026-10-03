@@ -6,7 +6,7 @@
 /*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/26 12:42:52 by yutambo           #+#    #+#             */
-/*   Updated: 2026/09/29 14:41:15 by yutambo          ###   ########.fr       */
+/*   Updated: 2026/10/04 01:19:11 by yutambo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ static int	test_case4(const char *name)
 int	test_ft_lstadd_front(void)
 {
 	int		fail;
+
+	printf("===== test_ft_lstadd_front =====\n");
 	fail = 0;
 	fail += test_case1("empty lst");
 	fail += test_case2("normal lst");

@@ -6,7 +6,7 @@
 /*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/29 21:33:50 by yutambo           #+#    #+#             */
-/*   Updated: 2026/09/29 21:46:53 by yutambo          ###   ########.fr       */
+/*   Updated: 2026/10/04 01:20:11 by yutambo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ int	test_ft_lstiter(void)
 {
 	int	fail;
 
+	printf("===== test_ft_lstiter =====\n");
 	fail = 0;
 	fail += test_case1("lst==NULL");
 	fail += test_case2("f==NULL");

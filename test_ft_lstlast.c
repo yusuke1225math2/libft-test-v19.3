@@ -6,7 +6,7 @@
 /*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/29 17:00:23 by yutambo           #+#    #+#             */
-/*   Updated: 2026/09/29 17:09:48 by yutambo          ###   ########.fr       */
+/*   Updated: 2026/10/04 01:20:25 by yutambo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ int	test_ft_lstlast(void)
 {
 	int	fail;
 
+	printf("===== test_ft_lstlast =====\n");
 	fail = 0;
 	fail += test_case1("NULL");
 	fail += test_case2("single node");

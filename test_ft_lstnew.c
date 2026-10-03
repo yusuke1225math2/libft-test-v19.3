@@ -6,7 +6,7 @@
 /*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/26 12:42:52 by yutambo           #+#    #+#             */
-/*   Updated: 2026/09/29 13:46:31 by yutambo          ###   ########.fr       */
+/*   Updated: 2026/10/04 01:20:45 by yutambo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	test_ft_lstnew(void)
 	int	fail;
 	int	arr[3] = {1, 2, 3};
 
+	printf("===== test_ft_lstnew =====\n");
 	fail = 0;
 	fail += test_case("normal string", "abc");
 	fail += test_case("normal int arr", arr);

@@ -6,7 +6,7 @@
 /*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/29 16:39:33 by yutambo           #+#    #+#             */
-/*   Updated: 2026/09/29 16:45:40 by yutambo          ###   ########.fr       */
+/*   Updated: 2026/10/04 01:21:08 by yutambo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int	test_ft_lstsize(void)
 {
 	int	fail;
 
+	printf("===== test_ft_lstsize =====\n");
 	fail = 0;
 	fail += test_case1("NULL");
 	fail += test_case2("one node");

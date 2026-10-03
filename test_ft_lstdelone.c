@@ -6,7 +6,7 @@
 /*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/29 17:53:40 by yutambo           #+#    #+#             */
-/*   Updated: 2026/09/29 18:16:25 by yutambo          ###   ########.fr       */
+/*   Updated: 2026/10/04 01:19:46 by yutambo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int	test_ft_lstdelone(void)
 {
 	int	fail;
 
+	printf("===== test_ft_lstdelone =====\n");
 	fail = 0;
 	fail += test_case1("lst is NULL");
 	fail += test_case2("del node1 of two nodes");
