@@ -66,4 +66,4 @@ ccwtest ft_lstadd_back.c
 ccwtest ft_lstdelone.c
 ccwtest ft_lstclear.c
 ccwtest ft_lstiter.c
-ccw tests/test_ft_lstmap.c tests/utils.c libft.a -Wl,--wrap=ft_lstnew
+ccw tests/test_ft_lstmap.c tests/utils.c libft.a -Wl,--wrap=ft_lstnew && ./a.out
