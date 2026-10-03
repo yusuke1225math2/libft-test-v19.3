@@ -1,25 +1,27 @@
 #include "test_libft.h"
 
-static void	test_case(char *s)
+static int	test_case(const char *name, const char *s)
 {
-	printf("case: \"%s\"\n", s);
-	printf("atoi:		%d\n", atoi(s));
-	printf("ft_atoi:	%d\n", ft_atoi(s));
-	printf("\n");
+	return (result(name, atoi(s) == ft_atoi(s)));
 }
 
-void	test_ft_atoi(void)
+int	test_ft_atoi(void)
 {
-	test_case("");
-	test_case(" 	01234");
-	test_case("	 +12345");
-	test_case("	 -12345");
-	test_case("	 +-12345");
-	test_case("	 --12345");
-	test_case("123AB");
+	int	fail = 0;
+
+	printf("===== test: ft_atoi =====\n");
+	fail += test_case("\"\"", "");
+	fail += test_case("\" 	01234\"", " 	01234");
+	fail += test_case("\"	 +12345\"", "	 +12345");
+	fail += test_case("\"	 -12345\"", "	 -12345");
+	fail += test_case("\"	 +-12345\"", "	 +-12345");
+	fail += test_case("\"	 --12345\"", "	 --12345");
+	fail += test_case("\"123AB\"", "123AB");
+	result_all(fail);
+	return (fail);
 }
 
 int	main(void)
 {
-	test_ft_atoi();
+	return (test_ft_atoi());
 }
