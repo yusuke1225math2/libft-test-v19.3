@@ -13,7 +13,7 @@ int	test_ft_isdigit(void)
 	fail += test_case("'/' before '0'", '/');
 	fail += test_case("'0'", '0');
 	fail += test_case("'9'", '9');
-	fail += test_case("':' after '0'", ':');
+	fail += test_case("':' after '9'", ':');
 	fail += test_case("EOF", EOF);
 }
 

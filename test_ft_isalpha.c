@@ -17,7 +17,7 @@ int	test_ft_isalpha(void)
 	fail += test_case("'`' before 'a'", '`');
 	fail += test_case("'a'", 'a');
 	fail += test_case("'z'", 'z');
-	fail += test_case("'{' after z", '{');
+	fail += test_case("'{' after 'z'", '{');
 	fail += test_case("EOF", EOF);
 	result_all(fail);
 	return (fail);
