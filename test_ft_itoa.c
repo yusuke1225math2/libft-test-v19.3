@@ -6,28 +6,38 @@
 /*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/26 12:42:52 by yutambo           #+#    #+#             */
-/*   Updated: 2026/09/26 15:39:32 by yutambo          ###   ########.fr       */
+/*   Updated: 2026/10/04 02:14:21 by yutambo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "test_libft.h"
 
-void	test_case(int n)
+static int	test_case(const char *name, int n, const char *s)
 {
+	int		ok;
 	char	*r;
 
 	r = ft_itoa(n);
-	printf("n: %d, return: \"%s\"", n, r);
-	printf("\n");
+	ok = !strcmp(r, s);
 	free(r);
+	return (result(name, ok));
+}
+
+int	test_ft_itoa(void)
+{
+	int	fail = 0;
+
+	fail += test_case("2147483647", 2147483647, "2147483647");
+	fail += test_case("12045", 12045, "12045");
+	fail += test_case("0", 0, "0");
+	fail += test_case("-0", -0, "0");
+	fail += test_case("-12045", -12045, "-12045");
+	fail += test_case("-2147483647 - 1", -2147483647 - 1, "-2147483648");
+	result_all(fail);
+	return (fail);
 }
 
 int	main(void)
 {
-	test_case(2147483647);
-	test_case(12045);
-	test_case(0);
-	test_case(-0);
-	test_case(-12045);
-	test_case(-2147483647 - 1);
+	return (test_ft_itoa());
 }
