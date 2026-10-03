@@ -1,23 +1,23 @@
 #include "test_libft.h"
 
-static void	test_case(int c)
+static int	test_case(const char *name, int c)
 {
-	printf("case: c == %d ('%c' in char)\n", c, c);
-	printf("isdigit:	%d\n", isdigit(c));
-	printf("ft_isdigit:	%d\n", ft_isdigit(c));
-	printf("\n");
+	return (result(name, !!isdigit(c) == !!ft_isdigit(c)));
 }
 
-void	test_ft_isdigit(void)
+int	test_ft_isdigit(void)
 {
-	test_case('a');
-	test_case('0');
-	test_case('5');
-	test_case('9');
-	test_case('A');
+	int	fail = 0;
+
+	printf("===== test_ft_isdigit =====\n");
+	fail += test_case("'/' before '0'", '/');
+	fail += test_case("'0'", '0');
+	fail += test_case("'9'", '9');
+	fail += test_case("':' after '0'", ':');
+	fail += test_case("EOF", EOF);
 }
 
 int	main(void)
 {
-	test_ft_isdigit();
+	return (test_ft_isdigit());
 }

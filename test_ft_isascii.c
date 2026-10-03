@@ -1,23 +1,30 @@
 #include "test_libft.h"
 
-static void	test_case(int c)
+static int	test_case(const char *name, int c)
 {
-	printf("case: c == %d\n", c);
-	printf("isascii:	%d\n", isascii(c));
-	printf("ft_isascii:	%d\n", ft_isascii(c));
-	printf("\n");
+	return (result(name, !!isascii(c) == !!ft_isascii(c)));
 }
 
-void	test_ft_isascii(void)
+int	test_ft_isascii(void)
 {
-	test_case(-1);
-	test_case(0);
-	test_case(50);
-	test_case(127);
-	test_case(200);
+	int	fail = 0;
+
+	printf("===== test_ft_isascii =====\n");
+	fail += test_case("INT_MIN", INT_MIN);
+	fail += test_case("-1000", -1000);
+	fail += test_case("EOF", EOF);
+	fail += test_case("0", 0);
+	fail += test_case("127 last ascii", 127);
+	fail += test_case("128 after ascii", 128);
+	fail += test_case("200", 200);
+	fail += test_case("255", 255);
+	fail += test_case("256", 256);
+	fail += test_case("INT_MAX", INT_MAX);
+	result_all(fail);
+	return (fail);
 }
 
 int	main(void)
 {
-	test_ft_isascii();
+	return (test_ft_isascii());
 }

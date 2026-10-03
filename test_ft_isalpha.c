@@ -1,24 +1,29 @@
 #include "test_libft.h"
 
-static void	test_case(int c)
+static int	test_case(const char *name, int c)
 {
-	printf("case: c == %d ('%c' in char)\n", c, c);
-	printf("isalpha:	%d\n", isalpha(c));
-	printf("ft_isalpha:	%d\n", ft_isalpha(c));
-	printf("\n");
+	return (result(name, !!isalpha(c) == !!ft_isalpha(c)));
 }
 
-void test_ft_isalpha(void)
+int	test_ft_isalpha(void)
 {
-	test_case('1');
-	test_case('a');
-	test_case('Z');
-	test_case(-1);
-	test_case(1000);
-	test_case(-1000);
+	int fail = 0;
+
+	printf("===== test_ft_isalpha =====\n");
+	fail += test_case("'@' before 'A'", '@');
+	fail += test_case("'A'", 'A');
+	fail += test_case("'Z'", 'Z');
+	fail += test_case("'[' after 'Z'", '[');
+	fail += test_case("'`' before 'a'", '`');
+	fail += test_case("'a'", 'a');
+	fail += test_case("'z'", 'z');
+	fail += test_case("'{' after z", '{');
+	fail += test_case("EOF", EOF);
+	result_all(fail);
+	return (fail);
 }
 
 int	main(void)
 {
-	test_ft_isalpha();
+	return (test_ft_isalpha());
 }
