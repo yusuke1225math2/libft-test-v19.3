@@ -9,6 +9,7 @@ int	test_ft_tolower(void)
 {
 	int	fail = 0;
 
+	printf("===== test: ft_tolower =====\n");
 	fail += test_case("\' \'", ' ');
 	fail += test_case("\'0\'", '0');
 	fail += test_case("\'a\'", 'a');
