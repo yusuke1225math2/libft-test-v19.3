@@ -6,12 +6,12 @@
 /*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 11:55:07 by yutambo           #+#    #+#             */
-/*   Updated: 2026/10/03 23:20:32 by yutambo          ###   ########.fr       */
+/*   Updated: 2026/10/04 01:35:14 by yutambo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // To run this test, run following command.
-// ccw tests/utils.c tests/test_ft_lstmap.c libft.a -Wl,--wrap=ft_lstnew
+// ccw tests/utils.c tests/test_ft_lstmap.c libft.a -Wl,--wrap=ft_lstnew && ./a.out
 
 #include "test_libft.h"
 
@@ -125,6 +125,7 @@ static int	test_case5(const char *name)
 	t_list	*node2;
 	t_list	*node3;
 	t_list	*new;
+	int		ok;
 
 	node1 = ft_lstnew(strdup("abc"));
 	node2 = ft_lstnew(strdup("def"));
@@ -136,11 +137,11 @@ static int	test_case5(const char *name)
 	f_calls = 0;
 	fail_on = 1;
 	new = ft_lstmap(node1, f, del);
-	assert(new == NULL);
-	assert(del_calls == fail_on);
-	assert(f_calls == fail_on);
+	ok = (new == NULL)
+		&& (del_calls == fail_on)
+		&& (f_calls == fail_on);
 	ft_lstclear(&node1, del);
-	return (result(name, 1));
+	return (result(name, ok));
 	
 }
 
