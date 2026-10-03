@@ -6,7 +6,7 @@
 /*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 11:55:07 by yutambo           #+#    #+#             */
-/*   Updated: 2026/10/01 00:26:50 by yutambo          ###   ########.fr       */
+/*   Updated: 2026/10/03 23:20:32 by yutambo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,6 +148,7 @@ int	test_ft_lstmap(void)
 {
 	int	fail;
 
+	printf("===== test_ft_lstmap =====\n");
 	fail = 0;
 	fail += test_case1("3 nodes");
 	fail += test_case2("1 node");
