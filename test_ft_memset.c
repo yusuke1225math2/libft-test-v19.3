@@ -1,19 +1,50 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test_ft_memset.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/05 23:31:59 by yutambo           #+#    #+#             */
+/*   Updated: 2026/10/05 23:37:51 by yutambo          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "test_libft.h"
 
-void	test_case(char *s1, char *s2, int c, size_t n)
+static int	test_case_char(const char *name, int c, size_t n)
 {
-	printf("s1:		\"%s\"\n", s1);
-	memset(s1, c, n);
-	printf("memset:		\"%s\"\n", s1);
-	printf("s2:		\"%s\"\n", s2);
-	ft_memset(s2, c, n);
-	printf("ft_memset:	\"%s\"\n", s2);
+	char	sa[6] = "12345";
+	char	sb[6] = "12345";
+
+	memset(sa, c, n);
+	ft_memset(sb, c, n);
+	return (result(name, memcmp(sa, sb, 6) == 0));
+}
+
+static int	test_case_int(const char *name, int c, size_t n)
+{
+	int	sa[6] = {1, 2, 3, 4, 5, 6};
+	int	sb[6] = {1, 2, 3, 4, 5, 6};
+
+	memset(sa, c, n);
+	ft_memset(sb, c, n);
+	return (result(name, memcmp(sa, sb, 6) == 0));
+}
+
+int	test_ft_memset(void)
+{
+	int	fail = 0;
+
+	fail += test_case_int("int 1 3", 1, 3);
+	fail += test_case_int("int 1 0", 1, 0);
+	fail += test_case_char("char 'A' 3", 'A', 3);
+	fail += test_case_char("char 'A' 0", 'A', 0);
+	result_all(fail);
+	return (fail);
 }
 
 int	main(void)
 {
-	char	s1[6] = "12345";
-	char	s2[6] = "12345";
-	test_case(s1, s2, 'A', 3);
-
+	return (test_ft_memset());
 }
