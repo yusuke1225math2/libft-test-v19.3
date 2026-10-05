@@ -7,11 +7,14 @@ static int	test_case(const char *name, const char *s)
 
 int	test_ft_strlen(void)
 {
-	int	fail = 0;
+	int		fail;
+	char	s[] = "ab\0cd";
 
+	printf("===== test_ft_strlen =====\n");
+	fail = 0;
 	fail += test_case("\"\"", "");
 	fail += test_case("\"12345\"", "12345");
-	fail += test_case("\"\\0\"", "\0");
+	fail += test_case("embedded NUL", s);
 	result_all(fail);
 	return (fail);
 }

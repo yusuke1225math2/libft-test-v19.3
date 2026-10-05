@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test_ft_memmove.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/05 23:57:56 by yutambo           #+#    #+#             */
+/*   Updated: 2026/10/05 23:58:09 by yutambo          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "test_libft.h"
 
 #define BUF_SIZE 16
@@ -6,8 +18,8 @@ static int	test_case(const char *name, const void *src, size_t n)
 {
 	unsigned char	a[BUF_SIZE];
 	unsigned char	b[BUF_SIZE];
-	void	*ra;
-	void	*rb;
+	void			*ra;
+	void			*rb;
 
 	memset(a, '.', BUF_SIZE);
 	memset(b, '.', BUF_SIZE);
@@ -32,23 +44,27 @@ static int	test_int_array(void)
 	return (result("int array", memcmp(a, b, sizeof(a)) == 0));
 }
 
-static int	test_overlap(const char *name, size_t dst_off, size_t src_off, size_t n)
+static int	test_overlap(const char *name, size_t dst_off,
+							size_t src_off, size_t n)
 {
 	char	a[BUF_SIZE] = "0123456789";
 	char	b[BUF_SIZE] = "0123456789";
 	void	*ra;
 	void	*rb;
+	int		ok;
 
 	ra = memmove(a + dst_off, a + src_off, n);
 	rb = ft_memmove(b + dst_off, b + src_off, n);
-	return (result(name, memcmp(a, b, BUF_SIZE) == 0
-				&& ra == a + dst_off && rb == b + dst_off));
+	ok = (memcmp(a, b, BUF_SIZE) == 0)
+		&& ra == a + dst_off && rb == b + dst_off;
+	return (result(name, ok));
 }
 
 int	test_ft_memmove(void)
 {
 	int	fail;
 
+	printf("===== test_ft_memmove =====\n");
 	fail = 0;
 	fail += test_case("normal", "ABCDE", 3);
 	fail += test_case("n=0", "ABCDE", 0);

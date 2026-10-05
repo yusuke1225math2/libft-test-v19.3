@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test_ft_memcpy.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/05 23:56:08 by yutambo           #+#    #+#             */
+/*   Updated: 2026/10/05 23:56:18 by yutambo          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "test_libft.h"
 
 #define BUF_SIZE 16
@@ -6,8 +18,8 @@ static int	test_case(const char *name, const void *src, size_t n)
 {
 	unsigned char	a[BUF_SIZE];
 	unsigned char	b[BUF_SIZE];
-	void	*ra;
-	void	*rb;
+	void			*ra;
+	void			*rb;
 
 	memset(a, '.', BUF_SIZE);
 	memset(b, '.', BUF_SIZE);
@@ -36,6 +48,7 @@ int	test_ft_memcpy(void)
 {
 	int	fail;
 
+	printf("===== test_ft_memcpy =====\n");
 	fail = 0;
 	fail += test_case("normal", "ABCDE", 3);
 	fail += test_case("n=0", "ABCDE", 0);

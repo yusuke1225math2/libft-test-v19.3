@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test_ft_isalpha.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/05 23:50:38 by yutambo           #+#    #+#             */
+/*   Updated: 2026/10/05 23:50:44 by yutambo          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "test_libft.h"
 
 static int	test_case(const char *name, int c)
@@ -7,9 +19,10 @@ static int	test_case(const char *name, int c)
 
 int	test_ft_isalpha(void)
 {
-	int fail = 0;
+	int	fail;
 
 	printf("===== test_ft_isalpha =====\n");
+	fail = 0;
 	fail += test_case("'@' before 'A'", '@');
 	fail += test_case("'A'", 'A');
 	fail += test_case("'Z'", 'Z');

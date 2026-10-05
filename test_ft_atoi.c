@@ -7,9 +7,10 @@ static int	test_case(const char *name, const char *s)
 
 int	test_ft_atoi(void)
 {
-	int	fail = 0;
+	int	fail;
 
 	printf("===== test: ft_atoi =====\n");
+	fail = 0;
 	fail += test_case("\"\"", "");
 	fail += test_case("\" 	01234\"", " 	01234");
 	fail += test_case("\"	 +12345\"", "	 +12345");

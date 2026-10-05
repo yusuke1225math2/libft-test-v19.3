@@ -1,7 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test_ft_memcmp.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/05 23:55:12 by yutambo           #+#    #+#             */
+/*   Updated: 2026/10/06 00:08:41 by yutambo          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "test_libft.h"
 #define SIGN(x) (((x) > 0) - ((x) < 0))
 
-static int	test_case(const char *name, const void *s1, const void *s2, size_t n)
+static int	test_case(const char *name, const void *s1, const void *s2,
+						size_t n)
 {
 	int	ra;
 	int	rb;
@@ -28,6 +41,7 @@ int	test_ft_memcmp(void)
 {
 	int	fail;
 
+	printf("===== test_ft_memcmp =====\n");
 	fail = 0;
 	fail += test_case("equal", "abc", "abc", 3);
 	fail += test_case("differs 1st", "abc", "xbc", 3);

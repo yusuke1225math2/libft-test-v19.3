@@ -9,7 +9,7 @@ int	test_ft_toupper(void)
 {
 	int	fail = 0;
 
-	printf("===== test: ft_toupper =====\n");
+	printf("===== test_ft_toupper =====\n");
 	fail += test_case("\' \'", ' ');
 	fail += test_case("\'0\'", '0');
 	fail += test_case("\'A\'", 'A');

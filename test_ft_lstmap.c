@@ -6,7 +6,7 @@
 /*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 11:55:07 by yutambo           #+#    #+#             */
-/*   Updated: 2026/10/04 01:35:14 by yutambo          ###   ########.fr       */
+/*   Updated: 2026/10/05 23:54:20 by yutambo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,7 +142,6 @@ static int	test_case5(const char *name)
 		&& (f_calls == fail_on);
 	ft_lstclear(&node1, del);
 	return (result(name, ok));
-	
 }
 
 int	test_ft_lstmap(void)

@@ -6,7 +6,7 @@
 /*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/29 16:39:33 by yutambo           #+#    #+#             */
-/*   Updated: 2026/10/04 01:21:08 by yutambo          ###   ########.fr       */
+/*   Updated: 2026/10/05 23:54:48 by yutambo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	test_case1(const char *name)
 
 static int	test_case2(const char *name)
 {
-	int	ok;
+	int		ok;
 	t_list	*head;
 	t_list	*node1;
 
@@ -35,7 +35,7 @@ static int	test_case2(const char *name)
 
 static int	test_case3(const char *name)
 {
-	int	ok;
+	int		ok;
 	t_list	*head;
 	t_list	*node1;
 	t_list	*node2;

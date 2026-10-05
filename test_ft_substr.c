@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test_ft_substr.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/06 00:32:04 by yutambo           #+#    #+#             */
+/*   Updated: 2026/10/06 00:33:17 by yutambo          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "test_libft.h"
 
 void	test_case(char const *s, unsigned int start, size_t len)
@@ -9,8 +21,12 @@ void	test_case(char const *s, unsigned int start, size_t len)
 	free(r);
 }
 
-int	main(void)
+int	test_ft_substr(void)
 {
+	int		fail;
+
+	printf("===== test_ft_substr =====\n");
+	fail = 0;
 	char	*sn;
 	char	*se;
 	char	*s;
@@ -37,4 +53,11 @@ int	main(void)
 	printf("---- When start is out of s -----\n");
 	test_case(s, 6, 0);
 	test_case(s, 6, 3);
+	result_all(fail);
+	return (fail);
+}
+
+int	main(void)
+{
+	return (test_ft_substr());
 }

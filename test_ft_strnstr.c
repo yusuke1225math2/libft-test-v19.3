@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test_ft_strnstr.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/06 00:29:50 by yutambo           #+#    #+#             */
+/*   Updated: 2026/10/06 00:30:01 by yutambo          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "test_libft.h"
 
 static int	test_case(const char *name, const char *big,
@@ -17,6 +29,7 @@ int	test_ft_strnstr(void)
 {
 	int	fail;
 
+	printf("===== test_ft_strnstr =====\n");
 	fail = 0;
 	fail += test_case("match", "0123456789", "3456", 10);
 	fail += test_case("matches the first", "01010101", "01", 8);

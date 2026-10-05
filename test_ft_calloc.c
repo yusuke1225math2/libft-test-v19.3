@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test_ft_calloc.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/05 23:50:13 by yutambo           #+#    #+#             */
+/*   Updated: 2026/10/05 23:50:13 by yutambo          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "test_libft.h"
 
 static int	test_case(const char *name, size_t nmemb, size_t size)
@@ -40,6 +52,7 @@ int	test_ft_calloc(void)
 {
 	int	fail;
 
+	printf("===== test_ft_calloc =====\n");
 	fail = 0;
 	fail += test_case("normal bytes", 5, 1);
 	fail += test_case("normal ints", 10, sizeof(int));

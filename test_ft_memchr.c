@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test_ft_memchr.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/05 23:55:04 by yutambo           #+#    #+#             */
+/*   Updated: 2026/10/06 00:36:09 by yutambo          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "test_libft.h"
 
 static int	test_case(const char *name, const void *s, int c, size_t n)
@@ -29,6 +41,7 @@ int	test_ft_memchr(void)
 {
 	int	fail;
 
+	printf("===== ft_memchr =====\n");
 	fail = 0;
 	fail += test_case("middle", "ABC", 'B', 3);
 	fail += test_case("last", "ABC", 'C', 3);

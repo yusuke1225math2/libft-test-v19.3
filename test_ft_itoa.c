@@ -6,7 +6,7 @@
 /*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/26 12:42:52 by yutambo           #+#    #+#             */
-/*   Updated: 2026/10/04 02:18:04 by yutambo          ###   ########.fr       */
+/*   Updated: 2026/10/05 23:51:41 by yutambo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,10 @@ static int	test_case(const char *name, int n, const char *s)
 
 int	test_ft_itoa(void)
 {
-	int	fail = 0;
+	int	fail;
 
 	printf("===== test_ft_itoa =====\n");
+	fail = 0;
 	fail += test_case("2147483647", 2147483647, "2147483647");
 	fail += test_case("12045", 12045, "12045");
 	fail += test_case("0", 0, "0");

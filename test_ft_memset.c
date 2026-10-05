@@ -6,7 +6,7 @@
 /*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/05 23:31:59 by yutambo           #+#    #+#             */
-/*   Updated: 2026/10/05 23:39:35 by yutambo          ###   ########.fr       */
+/*   Updated: 2026/10/06 00:36:00 by yutambo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,10 @@ static int	test_case_int(const char *name, int c, size_t n)
 
 int	test_ft_memset(void)
 {
-	int	fail = 0;
+	int	fail;
 
 	printf("===== test_ft_memset =====\n");
+	fail = 0;
 	fail += test_case_int("int 1 3", 1, 3);
 	fail += test_case_int("int 1 0", 1, 0);
 	fail += test_case_char("char 'A' 3", 'A', 3);

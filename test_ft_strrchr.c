@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test_ft_strrchr.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/06 00:30:17 by yutambo           #+#    #+#             */
+/*   Updated: 2026/10/06 00:30:28 by yutambo          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "test_libft.h"
 
 static int	test_case(const char *name, const char *s, int c)
@@ -15,6 +27,7 @@ int	test_ft_strrchr(void)
 {
 	int	fail;
 
+	printf("===== test_ft_strrchr =====\n");
 	fail = 0;
 	fail += test_case("repeated", "ABCABC", 'A');
 	fail += test_case("repeated end", "ABCABC", 'C');

@@ -15,6 +15,7 @@ int	test_ft_strchr(void)
 {
 	int	fail;
 
+	printf("===== test_ft_strchr =====\n");
 	fail = 0;
 	fail += test_case("middle", "ABC", 'B');
 	fail += test_case("last", "ABC", 'C');

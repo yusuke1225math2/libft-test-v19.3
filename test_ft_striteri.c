@@ -6,7 +6,7 @@
 /*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/26 12:42:52 by yutambo           #+#    #+#             */
-/*   Updated: 2026/09/26 17:19:14 by yutambo          ###   ########.fr       */
+/*   Updated: 2026/10/06 00:17:38 by yutambo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,15 @@ static void	test_case(char *s, void (*f)(unsigned int, char*))
 	printf("\n");
 }
 
-int	main(void)
+int	test_ft_striteri(void)
 {
+	int		fail;
 	char	s1[] = "hello";
 	char	s2[] = "abcdefghijk";
 	char	s3[] = "01234567889";
 
+	printf("===== test_ft_striteri =====\n");
+	fail = 0;
 	printf("\n==== Case: either s or f is NULL =====\n");
 	test_case(NULL, idx_more_than_second);
 	test_case(s1, NULL);
@@ -45,4 +48,11 @@ int	main(void)
 	test_case(s3, idx_more_than_second);
 	printf("\n===== Case: to_upper_even =====\n");
 	test_case(s2, to_upper_even);
+	result_all(fail);
+	return (fail);
+}
+
+int	main(void)
+{
+	return (test_ft_striteri());
 }

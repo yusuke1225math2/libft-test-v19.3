@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test_ft_strlcat.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/06 00:19:37 by yutambo           #+#    #+#             */
+/*   Updated: 2026/10/06 00:25:31 by yutambo          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "test_libft.h"
 
 #define BUF_SIZE 10
@@ -42,8 +54,12 @@ void	test_compare(char *dst, char *dst_ft, const char *src, size_t dsize)
 	printf("\n");
 }
 
-int	main(void)
+int	test_ft_strlcat(void)
 {
+	int	fail;
+
+	printf("===== test_ft_strlcat =====\n");
+	fail = 0;
 	// normal
 	char	dst1[BUF_SIZE] = "123";
 	char	dft1[BUF_SIZE] = "123";
@@ -103,4 +119,11 @@ int	main(void)
 	print_with_write(dst8);
 	ft_strlcat(dft8, src, BUF_SIZE);
 	print_with_write(dft8);
+	result_all(fail);
+	return (fail);
+}
+
+int	main(void)
+{
+	return (test_ft_strlcat());
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test_ft_strlcpy.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/06 00:25:59 by yutambo           #+#    #+#             */
+/*   Updated: 2026/10/06 00:27:44 by yutambo          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "test_libft.h"
 
 void	test_case(char *dst, const char *src, size_t dsize)
@@ -12,8 +24,12 @@ void	test_case_ft(char *dst, const char *src, size_t dsize)
 	printf("\n");
 }
 
-int	main(void)
+int	test_ft_strlcpy(void)
 {
+	int	fail;
+
+	printf("===== test_ft_strlcpy =====\n");
+	fail = 0;
 	char	*s;
 
 	char	d1[4] = "123";
@@ -45,4 +61,11 @@ int	main(void)
 	s = "ABCDE";
 	test_case(d5, s, 8); 
 	test_case_ft(dft5, s, 8); 
+	result_all(fail);
+	return (fail);
+}
+
+int	main(void)
+{
+	return (test_ft_strlcpy());
 }

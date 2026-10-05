@@ -6,7 +6,7 @@
 /*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/26 12:42:52 by yutambo           #+#    #+#             */
-/*   Updated: 2026/09/26 13:21:27 by yutambo          ###   ########.fr       */
+/*   Updated: 2026/10/06 00:34:44 by yutambo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,13 @@ void	test_case(char const *s1, char const *set)
 	free(r);
 }
 
-int	main(void)
+int	test_ft_strtrim(void)
 {
+	int		fail;
 	char	*s1;
 
+	printf("===== test_ft_strtrim =====\n");
+	fail = 0;
 	printf("===== Case: s1 or set is NULL=====\n");
 	s1 = NULL;
 	test_case(s1, " ");
@@ -42,4 +45,12 @@ int	main(void)
 	printf("\n");
 	printf("===== Case: s1 should not be trimmed =====\n");
 	test_case("AxByCzD", "xyz");
+	printf("===== test_ft_strtrim =====\n");
+	result_all(fail);
+	return (fail);
+}
+
+int	main(void)
+{
+	return (test_ft_strtrim());
 }
