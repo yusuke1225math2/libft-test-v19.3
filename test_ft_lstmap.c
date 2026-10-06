@@ -6,12 +6,16 @@
 /*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 11:55:07 by yutambo           #+#    #+#             */
-/*   Updated: 2026/10/05 23:54:20 by yutambo          ###   ########.fr       */
+/*   Updated: 2026/10/07 01:43:24 by yutambo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// To run this test, run following command.
-// ccw tests/utils.c tests/test_ft_lstmap.c libft.a -Wl,--wrap=ft_lstnew && ./a.out
+/* To run this test, run following command.
+
+ccw -g -fsanitize=address tests/utils.c tests/test_ft_lstmap.c \
+	libft.a -Wl,--wrap=ft_lstnew && ./a.out
+
+*/
 
 #include "test_libft.h"
 
@@ -119,7 +123,7 @@ static int	test_case4(const char *name)
 	return (result(name, ok));
 }
 
-static int	test_case5(const char *name)
+static int	test_case5(const char *name, int fail_at)
 {
 	t_list	*node1;
 	t_list	*node2;
@@ -135,12 +139,13 @@ static int	test_case5(const char *name)
 	del_calls = 0;
 	new_calls = 0;
 	f_calls = 0;
-	fail_on = 1;
+	fail_on = fail_at;
 	new = ft_lstmap(node1, f, del);
 	ok = (new == NULL)
 		&& (del_calls == fail_on)
 		&& (f_calls == fail_on);
 	ft_lstclear(&node1, del);
+	fail_on = 0;
 	return (result(name, ok));
 }
 
@@ -154,7 +159,9 @@ int	test_ft_lstmap(void)
 	fail += test_case2("1 node");
 	fail += test_case3("empty list");
 	fail += test_case4("f==NULL");
-	fail += test_case5("ft_lstnew fail");
+	fail += test_case5("ft_lstnew fail on 1st node", 1);
+	fail += test_case5("ft_lstnew fail on 2nd node", 2);
+	fail += test_case5("ft_lstnew fail on 3rd node", 3);
 	result_all(fail);
 	return (fail != 0);
 }
