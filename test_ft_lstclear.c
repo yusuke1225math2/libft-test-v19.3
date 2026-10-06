@@ -6,7 +6,7 @@
 /*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/29 20:28:04 by yutambo           #+#    #+#             */
-/*   Updated: 2026/10/04 01:19:30 by yutambo          ###   ########.fr       */
+/*   Updated: 2026/10/07 01:35:04 by yutambo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ static int	test_case1(const char *name)
 	g_del_calls = 0;
 	lst = NULL;
 	ft_lstclear(lst, free_count);
-	ok = (lst == NULL)
-		&& (g_del_calls == 0);
+	ok = g_del_calls == 0;
 	return (result(name, ok));
 }
 
