@@ -6,7 +6,7 @@
 /*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/05 23:49:14 by yutambo           #+#    #+#             */
-/*   Updated: 2026/10/05 23:49:35 by yutambo          ###   ########.fr       */
+/*   Updated: 2026/10/06 22:39:11 by yutambo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	test_case_int(const char *name, size_t n)
 
 	bzero(sa, n);
 	ft_bzero(sb, n);
-	return (result(name, memcmp(sa, sb, 5) == 0));
+	return (result(name, memcmp(sa, sb, sizeof(sa)) == 0));
 }
 
 static int	test_case_char(const char *name, size_t n)
@@ -29,7 +29,7 @@ static int	test_case_char(const char *name, size_t n)
 
 	bzero(sa, n);
 	ft_bzero(sb, n);
-	return (result(name, memcmp(sa, sb, 5) == 0));
+	return (result(name, memcmp(sa, sb, sizeof(sa)) == 0));
 }
 
 int	test_ft_bzero(void)
