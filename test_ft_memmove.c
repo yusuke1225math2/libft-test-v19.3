@@ -6,7 +6,7 @@
 /*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/05 23:57:56 by yutambo           #+#    #+#             */
-/*   Updated: 2026/10/05 23:58:09 by yutambo          ###   ########.fr       */
+/*   Updated: 2026/10/07 00:39:41 by yutambo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	test_case(const char *name, const void *src, size_t n)
 
 static int	test_null(void)
 {
-	return (result("NULL NULL", ft_memcpy(NULL, NULL, 3) == NULL));
+	return (result("NULL NULL", ft_memmove(NULL, NULL, 3) == NULL));
 }
 
 static int	test_int_array(void)
@@ -79,7 +79,7 @@ int	test_ft_memmove(void)
 	fail += test_overlap("overlap dst<src by 1", 0, 1, 9);
 	fail += test_overlap("overlap dst==src", 0, 0, 5);
 	fail += test_overlap("adjacent", 5, 0, 5);
-	fail += test_overlap("overlap n=0", 2, 0, 2);
+	fail += test_overlap("overlap n=0", 2, 0, 0);
 	result_all(fail);
 	return (fail != 0);
 }
