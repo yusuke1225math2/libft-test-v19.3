@@ -6,7 +6,7 @@
 /*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/05 23:51:26 by yutambo           #+#    #+#             */
-/*   Updated: 2026/10/05 23:51:27 by yutambo          ###   ########.fr       */
+/*   Updated: 2026/10/06 23:48:15 by yutambo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,5 @@ int	test_ft_isprint(void)
 
 int	main(void)
 {
-	test_ft_isprint();
+	return (test_ft_isprint());
 }
