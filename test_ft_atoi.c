@@ -18,6 +18,11 @@ int	test_ft_atoi(void)
 	fail += test_case("\"	 +-12345\"", "	 +-12345");
 	fail += test_case("\"	 --12345\"", "	 --12345");
 	fail += test_case("\"123AB\"", "123AB");
+	fail += test_case("INT_MAX", "2147483647");
+	fail += test_case("INT_MIN", "-2147483648");
+	fail += test_case("\"\\n\\v\\f\\r 42\"", "\n\v\f\r 42");
+	fail += test_case("+", "+");
+	fail += test_case("-", "-");
 	result_all(fail);
 	return (fail);
 }
