@@ -7,7 +7,7 @@ static int	test_case(const char *name, const char *s, int c)
 
 	ra = strchr(s, c);
 	rb = ft_strchr(s, c);
-	printf("ra: [%s]\nrb: [%s]\n", ra, rb);
+	//printf("ra: [%s]\nrb: [%s]\n", ra, rb);
 	return (result(name, ra == rb));
 }
 
@@ -24,6 +24,7 @@ int	test_ft_strchr(void)
 	fail += test_case("256(NULL)", "ABC", 256);
 	fail += test_case("high byte", "AB\xe9", 0xe9);
 	fail += test_case("negative byte", "AB\xe9", -23);
+	fail += test_case("NUL", "ABC", '\0');
 	result_all(fail);
 	return (fail != 0);
 }
