@@ -6,7 +6,7 @@
 /*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/26 12:42:52 by yutambo           #+#    #+#             */
-/*   Updated: 2026/10/06 23:14:20 by yutambo          ###   ########.fr       */
+/*   Updated: 2026/10/06 23:25:10 by yutambo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,17 +64,17 @@ int	test_ft_split(void)
 
 	printf("===== test_ft_split =====\n");
 	fail = 0;
-	test_case("NULL s", NULL, '.', NULL);
-	test_case("empty s", "", '.', exp_empty);
-	test_case("only seps", "...", '.', exp_empty);
-	test_case("s == sep", "a", 'a', exp_empty);
-	test_case("no sep", "abc", '.', exp_one);
-	test_case("multi", "aaa.b.c.dddd.e", '.', exp_multi);
-	test_case("leading", "..aaa.bb.c", '.', exp_three);
-	test_case("consecutive", "aaa...bb.c.", '.', exp_three);
-	test_case("leand and trail", "..aaa.bb.c.", '.', exp_three);
-	test_case("spaces", "  hello   world  ", ' ', exp_words);
-	test_case("sep is NUL", "abc", '\0', exp_one);
+	fail += test_case("NULL s", NULL, '.', NULL);
+	fail += test_case("empty s", "", '.', exp_empty);
+	fail += test_case("only seps", "...", '.', exp_empty);
+	fail += test_case("s == sep", "a", 'a', exp_empty);
+	fail += test_case("no sep", "abc", '.', exp_one);
+	fail += test_case("multi", "aaa.b.c.dddd.e", '.', exp_multi);
+	fail += test_case("leading", "..aaa.bb.c", '.', exp_three);
+	fail += test_case("consecutive", "aaa...bb.c.", '.', exp_three);
+	fail += test_case("leand and trail", "..aaa.bb.c.", '.', exp_three);
+	fail += test_case("spaces", "  hello   world  ", ' ', exp_words);
+	fail += test_case("sep is NUL", "abc", '\0', exp_one);
 	result_all(fail);
 	return (fail);
 }

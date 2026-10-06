@@ -6,7 +6,7 @@
 /*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/26 16:21:47 by yutambo           #+#    #+#             */
-/*   Updated: 2026/10/04 01:41:43 by yutambo          ###   ########.fr       */
+/*   Updated: 2026/10/07 00:43:08 by yutambo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	test_case(const char *name, const char *s)
 
 	ra = strdup(s);
 	rb = ft_strdup(s);
-	ok = strcmp(ra, rb) == 0;
+	ok = strcmp(ra, rb) == 0 && rb != s;
 	free(ra);
 	free(rb);
 	return (result(name, ok));

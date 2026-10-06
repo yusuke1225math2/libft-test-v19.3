@@ -6,19 +6,25 @@
 /*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 00:32:04 by yutambo           #+#    #+#             */
-/*   Updated: 2026/10/06 00:33:17 by yutambo          ###   ########.fr       */
+/*   Updated: 2026/10/07 00:29:02 by yutambo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "test_libft.h"
 
-void	test_case(char const *s, unsigned int start, size_t len)
+static int	test_case(const char *name, char const *s, unsigned int start,
+					size_t len, char *exp)
 {
 	char	*r;
+	int		ok;
 
 	r = ft_substr(s, start, len);
-	printf("s: \"%s\", start: %u, len: %zu, return: \"%s\"\n", s, start, len, r);
+	if (!r)
+		ok = r == exp;
+	else
+		ok = exp && strcmp(r, exp) == 0;
 	free(r);
+	return (result(name, ok));
 }
 
 int	test_ft_substr(void)
@@ -27,32 +33,18 @@ int	test_ft_substr(void)
 
 	printf("===== test_ft_substr =====\n");
 	fail = 0;
-	char	*sn;
-	char	*se;
-	char	*s;
-
-	printf("===== Case: s is NULL =====\n");
-	sn = NULL;
-	test_case(sn, 0, 0);
-	printf("===== Case: s is an empty string =====\n");
-	se = "";
-	printf("---- When start is in s -----\n");
-	test_case(se, 0, 0);
-	test_case(se, 0, 2);
-	printf("---- When start is out of s -----\n");
-	test_case(se, 1, 0);
-	test_case(se, 1, 2);
-	printf("===== Case: s is a normal string =====\n");
-	s = "12345";
-	printf("---- When start is in s -----\n");
-	test_case(s, 0, 0);
-	test_case(s, 0, 2);
-	test_case(s, 1, 0);
-	test_case(s, 1, 3);
-	test_case(s, 1, 6);
-	printf("---- When start is out of s -----\n");
-	test_case(s, 6, 0);
-	test_case(s, 6, 3);
+	fail += test_case("s is NULL", NULL, 0, 0, NULL);
+	fail += test_case("empty s, start 0, len 0", "", 0, 0, "");
+	fail += test_case("empty s, start 0, len 2", "", 0, 2, "");
+	fail += test_case("empty s, start 1, len 0", "", 1, 0, "");
+	fail += test_case("empty s, start 1, len 2", "", 1, 2, "");
+	fail += test_case("normal s, start 0, len 0", "12345", 0, 0, "");
+	fail += test_case("normal s, start 0, len 2", "12345", 0, 2, "12");
+	fail += test_case("normal s, start 1, len 0", "12345", 1, 0, "");
+	fail += test_case("normal s, start 1, len 3", "12345", 1, 3, "234");
+	fail += test_case("normal s, start 1, len 6", "12345", 1, 6, "2345");
+	fail += test_case("normal s, start 6, len 0", "12345", 6, 0, "");
+	fail += test_case("normal s, start 6, len 3", "12345", 6, 3, "");
 	result_all(fail);
 	return (fail);
 }

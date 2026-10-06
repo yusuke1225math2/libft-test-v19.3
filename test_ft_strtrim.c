@@ -6,46 +6,39 @@
 /*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/26 12:42:52 by yutambo           #+#    #+#             */
-/*   Updated: 2026/10/06 00:34:44 by yutambo          ###   ########.fr       */
+/*   Updated: 2026/10/07 00:15:09 by yutambo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "test_libft.h"
 
-void	test_case(char const *s1, char const *set)
+static int	test_case(const char *name, char const *s1, char const *set,
+						const char *exp)
 {
 	char	*r;
+	int		ok;
 
 	r = ft_strtrim(s1, set);
-	printf("s1: \"%s\", set: \"%s\", return: \"%s\"", s1, set, r);
-	printf("\n");
+	if (!r)
+		ok = r == exp;
+	else
+		ok = exp && strcmp(r, exp) == 0;
 	free(r);
+	return (result(name, ok));
 }
 
 int	test_ft_strtrim(void)
 {
 	int		fail;
-	char	*s1;
 
 	printf("===== test_ft_strtrim =====\n");
 	fail = 0;
-	printf("===== Case: s1 or set is NULL=====\n");
-	s1 = NULL;
-	test_case(s1, " ");
-	test_case("abc", NULL);
-	printf("\n");
-	printf("===== Case: s1 is empty =====\n");
-	test_case("", "xyz");
-	printf("\n");
-	printf("===== Case: s1 consists of set =====\n");
-	test_case("xxyzyzxx", "xyz");
-	printf("\n");
-	printf("===== Case: s1 should be trimmed =====\n");
-	test_case("yyxxzzABCDEFxyzxyz", "xyz");
-	printf("\n");
-	printf("===== Case: s1 should not be trimmed =====\n");
-	test_case("AxByCzD", "xyz");
-	printf("===== test_ft_strtrim =====\n");
+	fail += test_case("s1 is NULL", NULL, " ", NULL);
+	fail += test_case("set is NULL", "abc", NULL, NULL);
+	fail += test_case("s1 is empty", "", "xyz", "");
+	fail += test_case("s1 is of set", "xxyzyzxx", "xyz", "");
+	fail += test_case("trimmed", "yyxxzzABCDEFxyzxyz", "xyz", "ABCDEF");
+	fail += test_case("not trimmed", "AxByCzD", "xyz", "AxByCzD");
 	result_all(fail);
 	return (fail);
 }

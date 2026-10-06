@@ -6,7 +6,7 @@
 /*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/26 12:42:52 by yutambo           #+#    #+#             */
-/*   Updated: 2026/10/06 00:28:57 by yutambo          ###   ########.fr       */
+/*   Updated: 2026/10/07 00:19:42 by yutambo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,19 @@ static char	to_upper_even(unsigned int i, char c)
 	return (c);
 }
 
-static void	test_case(char const *s, char (*f)(unsigned int, char))
+static int	test_case(const char *name, char const *s,
+						char (*f)(unsigned int, char), const char *exp)
 {
 	char	*r;
+	int		ok;
 
 	r = ft_strmapi(s, f);
-	printf("s: \"%s\", return: \"%s\"", s, r);
-	printf("\n");
+	if (!r)
+		ok = r == exp;
+	else
+		ok = exp && strcmp(r, exp) == 0;
 	free(r);
+	return (result(name, ok));
 }
 
 int	test_ft_strmapi(void)
@@ -42,13 +47,10 @@ int	test_ft_strmapi(void)
 
 	printf("===== test_ft_strmapi =====\n");
 	fail = 0;
-	printf("\n==== Case: either s or f is NULL =====\n");
-	test_case(NULL, idx_more_than_second);
-	test_case("hello", NULL);
-	printf("\n===== Case: idx_more_than_second =====\n");
-	test_case("012345", idx_more_than_second);
-	printf("\n===== Case: to_upper_even =====\n");
-	test_case("abcdef", to_upper_even);
+	fail += test_case("s is NULL", NULL, idx_more_than_second, NULL);
+	fail += test_case("f is NULL", "hello", NULL, NULL);
+	fail += test_case("idx_more_than_second", "012345", idx_more_than_second, "012TTT");
+	fail += test_case("to_upper_even", "abcdef", to_upper_even, "AbCdEf");
 	result_all(fail);
 	return (fail);
 }

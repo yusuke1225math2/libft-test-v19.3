@@ -6,7 +6,7 @@
 /*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 00:30:17 by yutambo           #+#    #+#             */
-/*   Updated: 2026/10/06 00:30:28 by yutambo          ###   ########.fr       */
+/*   Updated: 2026/10/07 00:43:57 by yutambo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	test_case(const char *name, const char *s, int c)
 
 	ra = strrchr(s, c);
 	rb = ft_strrchr(s, c);
-	printf("\nra: [%s]\nrb: [%s]\n", ra, rb);
+	//printf("\nra: [%s]\nrb: [%s]\n", ra, rb);
 	return (result(name, ra == rb));
 }
 
