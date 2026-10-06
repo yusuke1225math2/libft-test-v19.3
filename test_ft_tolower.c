@@ -6,7 +6,7 @@
 /*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 00:33:35 by yutambo           #+#    #+#             */
-/*   Updated: 2026/10/06 00:33:57 by yutambo          ###   ########.fr       */
+/*   Updated: 2026/10/07 01:41:11 by yutambo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,13 @@ int	test_ft_tolower(void)
 	fail += test_case("\'a\'", 'a');
 	fail += test_case("\'A\'", 'A');
 	fail += test_case("\'Z\'", 'Z');
+	fail += test_case("before 'A'", '@');
+	fail += test_case("after 'Z'", '[');
+	fail += test_case("before 'a'", '`');
+	fail += test_case("after 'z'", '{');
+	fail += test_case("EOF", EOF);
+	fail += test_case("128", 128);
+	fail += test_case("255", 255);
 	result_all(fail);
 	return (fail);
 }

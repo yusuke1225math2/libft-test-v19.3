@@ -6,7 +6,7 @@
 /*   By: yutambo <yutambo@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/05 23:51:26 by yutambo           #+#    #+#             */
-/*   Updated: 2026/10/06 23:48:15 by yutambo          ###   ########.fr       */
+/*   Updated: 2026/10/07 01:44:20 by yutambo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ int	test_ft_isprint(void)
 	fail += test_case("' '", ' ');
 	fail += test_case("'&'", '&');
 	fail += test_case("'~'", '~');
-	fail += test_case("'127'", 127);
+	fail += test_case("127", 127);
+	fail += test_case("EOF", EOF);
+	fail += test_case("128", 128);
+	fail += test_case("255", 255);
 	result_all(fail);
 	return (fail);
 }
