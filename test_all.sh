@@ -19,11 +19,20 @@ ccwtest() {
     return 1
   fi
   set -- "$target"
-  make && cc -g -fsanitize=address -Werror -Wall -Wextra -lbsd tests/utils.c "tests/test_$1" libft.a && ASAN_OPTIONS=allocator_may_return_null=1 ./a.out || return
+  cc -g -fsanitize=address -Werror -Wall -Wextra -lbsd tests/utils.c "tests/test_$1" libft.a && ASAN_OPTIONS=allocator_may_return_null=1 ./a.out || return
   if [ "$use_valgrind" -eq 1 ]; then
     valgrind --leak-check=full ./a.out
   fi
 }
+echo "===== norminette ====="
+norminette *.c *.h
+echo "\n===== make fclean ====="
+make fclean
+echo "\n===== make ====="
+make
+echo "\n===== make (no re-link) ====="
+make
+echo "\n===== tests for each function ====="
 ccwtest ft_isalpha.c
 ccwtest ft_isdigit.c
 ccwtest ft_isalnum.c
